@@ -52,10 +52,10 @@ func main() {
 	e := echo.New()
 	e.Renderer = t
 	e.GET("/", show)
-	e.GET("/box", box)
 	e.GET("/api", api)
 	e.GET("/orders", orders)
 	e.Static("/images/*", "images")
+	e.Static("/css/*", "css")
 	log.Fatal(e.Start(":" + os.Getenv("PORT")))
 }
 
