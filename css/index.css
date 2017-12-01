@@ -4,26 +4,32 @@ body {
 
 #nopdl {
     padding-right: 0px;
-    }
+}
     
-    #nopd {
-        padding-right: 0px;
-        padding-left: 0px;
-    }
+#nopd {
+     padding-right: 0px;
+     padding-left: 0px;
+ }
     
-    #nomg {
-        margin-left: 0px;
-        margin-right: 0px;
-    }
+#nomg {
+    margin-left: 0px;
+    margin-right: 0px;
+}
 
-    #tabelcollor{
-        background-color: lightgray;
-    }
+#mgtop {
+    margin-top: 40px;
+}   
+
+#tabelcollor{
+    background-color: lightgray;
+
+}
     
 
-    th {
-        background-color: #a08888c9;}
-    
-    tr:hover {
-        background-color: #f5f5f5;
-    }  
+th {
+    background-color: #a08888c9;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}  
