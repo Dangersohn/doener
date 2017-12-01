@@ -10,105 +10,48 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
         crossorigin="anonymous">
-        <link href="css/index.css" rel="stylesheet">
+        <link href="css/index.css"  type="text/css" rel="stylesheet">
 </head>
 
 <body>
 
     <div class="container-fluid">
-        <div class=row>
-            <div class="col-sm-12 col-md-12 col-lg-4">
-                <img src="images/01.jpg" class="img-fluid" alt="Responsive image" data-toggle="collapse" href="#collapsedoener" aria-expanded="false"
-                    aria-controls="collapsedoener">
-                <div class="collapse" id="collapsedoener">
-                    <form action="/api">
-                        <label for="text-input">Küerzel</label>
-                        <input type="text" class="form-control" name="kuerzel" placeholder="Kürzel eingeben">
-                        <p>Soße</p>
-                        <input type="checkbox" name="sosse1" value="Knoblauch">Knoblauch
-                        <br>
-                        <input type="checkbox" name="sosse2" value="Kraeuter">Kräuter
-                        <br>
-                        <input type="checkbox" name="sosse3" value="Scharf">Scharf
-                        <br>
-                        <a>Salat</a>
-                        <br>
-                        <input type="checkbox" name="salat1" value="Zwiebeln">Zwiebeln
-                        <br>
-                        <input type="checkbox" name="salat2" value="Rotkohl">Rotkohl
-                        <br>
-                        <input type="checkbox" name="salat3" value="Tomaten">Tomaten
-                        <br>
-                        <input type="checkbox" name="salat4" value="Ohne salat">ohne Salat
-                        <br>
-                        <input type="hidden" name="gericht" value="Doener">
-                        <input type="submit" value="Submit">
-                    </form>
-                </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Gericht</th>
+                            <th>Soße</th>
+                            <th>Salat</thlightgrey>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{.Kuerzel}}</td>
+                            <td>{{.Gericht}}</td>
+                            <td>{{.Sosse1}} {{.Sosse2}} {{.Sosse3}}</td>
+                            <td>{{.Salat1}} {{.Salat2}} {{.Salat3}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-
-            <div class="col-sm-12 col-md-12 col-lg-4">
-                <img src="images/doener-box.jpg" class="img-fluid" alt="Responsive image" data-toggle="collapse" href="#collapsebox" aria-expanded="false"
-                    aria-controls="collapsebox">
-                <div class="collapse" id="collapsebox">
-                    <form action="/api">
-                        <label for="text-input">Küerzel</label>
-                        <input type="text" class="form-control" name="kuerzel" placeholder="Kürzel eingeben">
-                        <p>Soße</p>
-                        <input type="checkbox" name="sosse1" value="Knoblauch">Knoblauch
-                        <br>
-                        <input type="checkbox" name="sosse2" value="Kraeuter">Kräuter
-                        <br>
-                        <input type="checkbox" name="sosse3" value="Scharf">Scharf
-                        <br>
-                        <a>Salat</a>
-                        <br>
-                        <input type="checkbox" name="salat1" value="Zwiebeln">Zwiebeln
-                        <br>
-                        <input type="checkbox" name="salat2" value="Rotkohl">Rotkohl
-                        <br>
-                        <input type="checkbox" name="salat3" value="Tomaten">Tomaten
-                        <br>
-                        <input type="checkbox" name="salat4" value="Ohne salat">ohne Salat
-                        <br>
-                        <input type="hidden" name="gericht" value="Doener Box">
-                        <input type="submit" value="Submit">
-                    </form>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6 text-md-right text-lg-right text-center">
+                <form method="get" action="/orders">
+                    <button id="nopd" type="button submit" class="btn btn-success">Alle Bestellungen</button>
+                </form>
             </div>
-            <div class="col-sm-12 col-md-12 col-lg-4">
-                <img src="images/tuerkische-pizza.jpg" class="img-fluid" alt="Responsive image" data-toggle="collapse" href="#collapseExample2" aria-expanded="false"
-                    aria-controls="collapseExample2">
-                <div class="collapse" id="collapseExample2">
-                    <form action="/api">
-                        <label for="text-input">Küerzel</label>
-                        <input type="text" class="form-control" name="kuerzel" placeholder="Kürzel eingeben">
-                        <p>Soße</p>
-                        <input type="checkbox" name="sosse1" value="Knoblauch">Knoblauch
-                        <br>
-                        <input type="checkbox" name="sosse2" value="Kraeuter">Kräuter
-                        <br>
-                        <input type="checkbox" name="sosse3" value="Scharf">Scharf
-                        <br>
-                        <a>Salat</a>
-                        <br>
-
-                        <input type="checkbox" name="salat1" value="Zwiebeln">Zwiebeln
-                        <br>
-                        <input type="checkbox" name="salat2" value="Rotkohl">Rotkohl
-                        <br>
-                        <input type="checkbox" name="salat3" value="Tomaten">Tomaten
-                        <br>
-                        <input type="checkbox" name="salat4" value="Ohne salat">ohne Salat
-                        <br>
-                        <input type="hidden" name="gericht" value="TuerkischePizza">
-                        <input type="submit" value="Submit">
-                    </form>
-                </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 text-md-left text-lg-left text-center">
+                <form method="get" action="/">
+                    <button id="nopd" type="button submit" class="btn btn-primary">Neue Bestellung</button>
+                </form>
             </div>
-
         </div>
     </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
