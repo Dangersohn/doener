@@ -36,3 +36,8 @@ th {
 tr:hover {
     background-color: #f5f5f5;
 }  
+
+#pdl {
+   padding-left: 15px; 
+   padding-right: 15px;
+}
