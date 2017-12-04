@@ -1,3 +1,8 @@
+#divc{
+    background-color: lightgray;
+
+}
+
 body {
     background-color: rgb(57, 196, 238); 
 }
@@ -24,8 +29,6 @@ body {
     background-color: lightgray;
 
 }
-    
-
 th {
     background-color: #a08888c9;
 }
