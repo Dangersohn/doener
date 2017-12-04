@@ -53,16 +53,17 @@ func show(c echo.Context) error {
 
 func api(c echo.Context) error {
 	doener := Doener{
-		Kuerzel: strings.ToUpper(c.QueryParam("kuerzel")),
-		Gericht: c.QueryParam("gericht"),
-		Preis:   c.QueryParam("preis"),
-		Sosse1:  c.QueryParam("sosse1"),
-		Sosse2:  c.QueryParam("sosse2"),
-		Sosse3:  c.QueryParam("sosse3"),
-		Salat1:  c.QueryParam("salat1"),
-		Salat2:  c.QueryParam("salat2"),
-		Salat3:  c.QueryParam("salat3"),
-		Salat4:  c.QueryParam("salat4"),
+		Kuerzel:   strings.ToUpper(c.QueryParam("kuerzel")),
+		Gericht:   c.QueryParam("gericht"),
+		Preis:     c.QueryParam("preis"),
+		Sosse1:    c.QueryParam("sosse1"),
+		Sosse2:    c.QueryParam("sosse2"),
+		Sosse3:    c.QueryParam("sosse3"),
+		Salat1:    c.QueryParam("salat1"),
+		Salat2:    c.QueryParam("salat2"),
+		Salat3:    c.QueryParam("salat3"),
+		Salat4:    c.QueryParam("salat4"),
+		Anmerkung: c.QueryParam("anmerkung"),
 	}
 	j, _ := json.Marshal(doener)
 

@@ -1,14 +1,15 @@
 package main
 
 type Doener struct {
-	Kuerzel string
-	Gericht string
-	Preis   string
-	Sosse1  string
-	Sosse2  string
-	Sosse3  string
-	Salat1  string
-	Salat2  string
-	Salat3  string
-	Salat4  string
+	Kuerzel   string
+	Gericht   string
+	Preis     string
+	Sosse1    string
+	Sosse2    string
+	Sosse3    string
+	Salat1    string
+	Salat2    string
+	Salat3    string
+	Salat4    string
+	Anmerkung string
 }
