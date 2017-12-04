@@ -21,18 +21,6 @@ type Template struct {
 	templates *template.Template
 }
 
-type Doener struct {
-	Kuerzel string
-	Gericht string
-	Sosse1  string
-	Sosse2  string
-	Sosse3  string
-	Salat1  string
-	Salat2  string
-	Salat3  string
-	Salat4  string
-}
-
 func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
 	return t.templates.ExecuteTemplate(w, name, data)
 }
@@ -67,6 +55,7 @@ func api(c echo.Context) error {
 	doener := Doener{
 		Kuerzel: strings.ToUpper(c.QueryParam("kuerzel")),
 		Gericht: c.QueryParam("gericht"),
+		Preis:   c.QueryParam("preis"),
 		Sosse1:  c.QueryParam("sosse1"),
 		Sosse2:  c.QueryParam("sosse2"),
 		Sosse3:  c.QueryParam("sosse3"),
