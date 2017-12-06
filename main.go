@@ -2,13 +2,11 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"html/template"
 	"io"
 	"log"
 	"net/http"
 	"os"
-	"strings"
 	"time"
 
 	"github.com/labstack/echo"
@@ -30,7 +28,7 @@ var db *leveldb.DB
 func main() {
 
 	t := &Template{
-		templates: template.Must(template.ParseGlob("template/*.html")),
+		templates: template.Must(template.ParseGlob("templates/**/*.html")),
 	}
 
 	db, _ = leveldb.OpenFile("db", nil)
@@ -39,42 +37,18 @@ func main() {
 
 	e := echo.New()
 	e.Renderer = t
-	e.GET("/", show)
-	e.GET("/api", api)
-	e.GET("/orders", orders)
+	e.GET("/", index)
+	e.GET("/doener", doener)
+	e.GET("/doenerbox", doenerbox)
+	e.GET("/tuerkischepizza", tuerkischepizza)
+	e.GET("/order", orders)
 	e.Static("/images/*", "images")
 	e.Static("/css/*", "css")
 	log.Fatal(e.Start(":" + os.Getenv("PORT")))
 }
 
-func show(c echo.Context) error {
+func index(c echo.Context) error {
 	return c.Render(http.StatusOK, "index.html", nil)
-}
-
-func api(c echo.Context) error {
-	doener := Doener{
-		Kuerzel:   strings.ToUpper(c.QueryParam("kuerzel")),
-		Gericht:   c.QueryParam("gericht"),
-		Preis:     c.QueryParam("preis"),
-		Sosse1:    c.QueryParam("sosse1"),
-		Sosse2:    c.QueryParam("sosse2"),
-		Sosse3:    c.QueryParam("sosse3"),
-		Salat1:    c.QueryParam("salat1"),
-		Salat2:    c.QueryParam("salat2"),
-		Salat3:    c.QueryParam("salat3"),
-		Salat4:    c.QueryParam("salat4"),
-		Anmerkung: c.QueryParam("anmerkung"),
-	}
-	j, _ := json.Marshal(doener)
-
-	t := time.Now().Format(time.RFC3339Nano)
-
-	err := db.Put([]byte(t), j, nil)
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	return c.Render(http.StatusOK, "doener.html", doener)
 }
 
 func orders(c echo.Context) error {

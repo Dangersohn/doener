@@ -10,7 +10,7 @@ import (
 	"github.com/labstack/echo"
 )
 
-type DoenerBox struct {
+type Tuerkischepizza struct {
 	Kuerzel   string
 	Gericht   string
 	Preis     string
@@ -24,8 +24,8 @@ type DoenerBox struct {
 	Anmerkung string
 }
 
-func doenerbox(c echo.Context) error {
-	doenerbox := DoenerBox{
+func tuerkischepizza(c echo.Context) error {
+	tuerkischepizza := Tuerkischepizza{
 		Kuerzel:   strings.ToUpper(c.QueryParam("kuerzel")),
 		Gericht:   c.QueryParam("gericht"),
 		Preis:     c.QueryParam("preis"),
@@ -47,5 +47,5 @@ func doenerbox(c echo.Context) error {
 		fmt.Println(err)
 	}
 
-	return c.Render(http.StatusOK, "orderdoenerbox.html", doenerbox)
+	return c.Render(http.StatusOK, "ordertuerkischepizza.html", tuerkischepizza)
 }
