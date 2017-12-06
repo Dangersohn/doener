@@ -15,6 +15,12 @@ import (
 	"github.com/syndtr/goleveldb/leveldb/util"
 )
 
+type Orders struct {
+	doner Doner,
+	donerbox DoenerBox,
+	tuerkischepizza Tuerkischepizza,
+}
+
 type Template struct {
 	templates *template.Template
 }

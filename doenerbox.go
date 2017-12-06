@@ -21,22 +21,29 @@ type DoenerBox struct {
 	Salat2    string
 	Salat3    string
 	Salat4    string
+	Pommes    string
 	Anmerkung string
 }
 
 func doenerbox(c echo.Context) error {
 	doenerbox := DoenerBox{
+		//Algemein
 		Kuerzel:   strings.ToUpper(c.QueryParam("kuerzel")),
-		Gericht:   c.QueryParam("gericht"),
-		Preis:     c.QueryParam("preis"),
-		Sosse1:    c.QueryParam("sosse1"),
-		Sosse2:    c.QueryParam("sosse2"),
-		Sosse3:    c.QueryParam("sosse3"),
-		Salat1:    c.QueryParam("salat1"),
-		Salat2:    c.QueryParam("salat2"),
-		Salat3:    c.QueryParam("salat3"),
-		Salat4:    c.QueryParam("salat4"),
 		Anmerkung: c.QueryParam("anmerkung"),
+		//Info Gericht
+		Gericht: c.QueryParam("gericht"),
+		Preis:   c.QueryParam("preis"),
+		//Sosse
+		Sosse1: c.QueryParam("sosse1"),
+		Sosse2: c.QueryParam("sosse2"),
+		Sosse3: c.QueryParam("sosse3"),
+		//Salat
+		Salat1: c.QueryParam("salat1"),
+		Salat2: c.QueryParam("salat2"),
+		Salat3: c.QueryParam("salat3"),
+		Salat4: c.QueryParam("salat4"),
+		//Pommes
+		Pommes: c.QueryParam("pommes"),
 	}
 	j, _ := json.Marshal(doener)
 
