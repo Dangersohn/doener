@@ -10,7 +10,7 @@ import (
 	"github.com/labstack/echo"
 )
 
-type DoenerBox struct {
+type Doenerbox struct {
 	Kuerzel   string
 	Gericht   string
 	Preis     string

@@ -16,9 +16,9 @@ import (
 )
 
 type Orders struct {
-	doner Doner,
-	donerbox DoenerBox,
-	tuerkischepizza Tuerkischepizza,
+	doener          []Doener
+	doenerbox       []Doenerbox
+	tuerkischepizza []Tuerkischepizza
 }
 
 type Template struct {
