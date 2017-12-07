@@ -26,7 +26,7 @@ type Doenerbox struct {
 }
 
 func doenerbox(c echo.Context) error {
-	doenerbox := DoenerBox{
+	doenerbox := Doenerbox{
 		//Algemein
 		Kuerzel:   strings.ToUpper(c.QueryParam("kuerzel")),
 		Anmerkung: c.QueryParam("anmerkung"),
@@ -45,11 +45,11 @@ func doenerbox(c echo.Context) error {
 		//Pommes
 		Pommes: c.QueryParam("pommes"),
 	}
-	j, _ := json.Marshal(doener)
+	j, _ := json.Marshal(doenerbox)
 
 	t := time.Now().Format(time.RFC3339Nano)
 
-	err := db.Put([]byte(t), j, nil)
+	err := db.Put([]byte(doenerbox.Gericht+t), j, nil)
 	if err != nil {
 		fmt.Println(err)
 	}

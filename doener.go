@@ -42,7 +42,7 @@ func doener(c echo.Context) error {
 
 	t := time.Now().Format(time.RFC3339Nano)
 
-	err := db.Put([]byte(t), j, nil)
+	err := db.Put([]byte(doener.Gericht+t), j, nil)
 	if err != nil {
 		fmt.Println(err)
 	}
