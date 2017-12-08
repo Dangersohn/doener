@@ -38,7 +38,7 @@ func tuerkischepizza(c echo.Context) error {
 		Salat4:    c.QueryParam("salat4"),
 		Anmerkung: c.QueryParam("anmerkung"),
 	}
-	j, _ := json.Marshal(doener)
+	j, _ := json.Marshal(tuerkischepizza)
 
 	t := time.Now().Format(time.RFC3339Nano)
 
@@ -46,6 +46,5 @@ func tuerkischepizza(c echo.Context) error {
 	if err != nil {
 		fmt.Println(err)
 	}
-
 	return c.Render(http.StatusOK, "ordertuerkischepizza.html", tuerkischepizza)
 }

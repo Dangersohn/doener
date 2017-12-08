@@ -29,21 +29,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{range .}}
+                        {{range $key, $doener := .Doener}}
                         <tr>
-                            <td>{{.Kuerzel}}</td>
-                            <td>{{.Gericht}}</td>
-                            <td>{{.Sosse1}} {{.Sosse2}} {{.Sosse3}}</td>
-                            <td>{{.Salat1}} {{.Salat2}} {{.Salat3}}</td>
-                            <td>{{.Anmerkung}}</td>
-                            <td>{{.Preis}}</td>
+                            <td>{{$doener.Kuerzel}}</td>
+                            <td>{{$doener.Gericht}}</td>
+                            <td>{{$doener.Sosse1}} {{$doener.Sosse2}} {{$doener.Sosse3}}</td>
+                            <td>{{$doener.Salat1}} {{$doener.Salat2}} {{$doener.Salat3}}</td>
+                            <td>{{$doener.Anmerkung}}</td>
+                            <td>{{$doener.Preis}}</td>
                         </tr>
                         {{end}}
                     </tbody>
             </div>
         </div>
     </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

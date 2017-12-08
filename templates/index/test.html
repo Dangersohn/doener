@@ -1,0 +1,21 @@
+{{range $key, $doener := .Doener}}
+{{$doener.Kuerzel}}
+{{$doener.Preis}}
+{{$doener.Sosse1}}
+{{$doener.Sosse2}}
+{{$doener.Sosse3}}
+{{$doener.Salat1}}
+{{$doener.Salat2}}
+{{$doener.Salat3}}
+{{$doener.Salat4}}
+{{$doener.Anmerkung}}
+
+{{end}}
+
+{{range $key, $doenerbox := .Doenerbox}}
+{{$doenerbox.Gericht}}
+{{end}}
+
+{{range $key, $tuerkischepizza := .Tuerkischepizza}}
+{{$tuerkischepizza.Gericht}}
+{{end}}

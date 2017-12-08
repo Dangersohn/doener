@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"html/template"
 	"io"
 	"log"
@@ -67,7 +66,7 @@ func orders(c echo.Context) error {
 	//Holt alle Doenerboxen aus der Datenbank
 	var dbox []Doenerbox
 	var d []Doener
-	var t []Tuerkischepizza
+	var tpizza []Tuerkischepizza
 
 	iter := db.NewIterator(util.BytesPrefix([]byte("Doener Box"+time.Now().Format("2006-01-02"))), nil)
 	for iter.Next() {
@@ -95,7 +94,7 @@ func orders(c echo.Context) error {
 		var tuerkische Tuerkischepizza
 		json.Unmarshal(iter.Value(), &tuerkische)
 
-		t = append(t, tuerkische)
+		tpizza = append(tpizza, tuerkische)
 
 	}
 	iter.Release()
@@ -103,10 +102,8 @@ func orders(c echo.Context) error {
 	Orders := Orders{
 		Doener:          d,
 		Doenerbox:       dbox,
-		Tuerkischepizza: t,
+		Tuerkischepizza: tpizza,
 	}
-	fmt.Println("---------------------------------------------------------------------------------------------------------")
-	fmt.Println(Orders.Doenerbox[0].Kuerzel)
 
 	return c.Render(http.StatusOK, "orders.html", Orders)
 }
